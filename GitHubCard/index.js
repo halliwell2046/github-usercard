@@ -87,14 +87,14 @@ function githubCard(object) {
 
 
   image.setAttribute('src', object.avatar_url)
-  name.textContent = object.name
-  username.textContent = object.login
-  location.textContent = object.location
+  name.textContent = "Name: " + object.name
+  username.textContent = "GitHub U/N: " + object.login
+  location.textContent = "Location: " + object.location
   address.setAttribute('src', object.html_url)
   profile.textContent = address
-  followers.textContent = object.followers
-  following.textContent = object.following
-  bio.textContent = object.bio
+  followers.textContent = "Followers: " + object.followers
+  following.textContent = "Following: " + object.following
+  bio.textContent = "Bio: " + object.bio
 
   return card;
 }
@@ -113,7 +113,7 @@ for (let i = 0; i < followersArray.length; i++){
     console.log(error)
   })
   .finally(function () {
-    
+
   })
 }
 
