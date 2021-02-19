@@ -59,6 +59,46 @@ const followersArray = [];
     </div>
 */
 
+function githubCard(object) {
+
+  const card = document.createElement('div')
+  const image = document.createElement('img')
+  const cardInfo = document.createElement('div')
+  const name = document.createElement('h3')
+  const username = document.createElement('p')
+  const location = document.createElement('p')
+  const profile = document.createElement('p')
+  const address = document.createElement('a')
+  const followers = document.createElement('p')
+  const following = document.createElement('p')
+  const bio = document.createElement('p')
+
+  card.appendChild(image)
+  card.appendChild(cardInfo)
+  cardInfo.appendChild(name)
+  cardInfo.appendChild(username)
+  cardInfo.appendChild(location)
+  cardInfo.appendChild(profile)
+
+  profile.appendChild(address)
+  cardInfo.appendChild(followers)
+  cardInfo.appendChild(following)
+  cardInfo.appendChild(bio)
+
+
+  image.setAttribute('src', object.avatar_url)
+  name.textContent = object.name
+  username.textContent = object.login
+  location.textContent = object.location
+  address.setAttribute('src', object.html_url)
+  profile.textContent = address
+  followers.textContent = object.followers
+  following.textContent = object.following
+  bio.textContent = object.bio
+
+  return card;
+}
+
 /*
   List of LS Instructors Github username's:
     tetondan
@@ -67,3 +107,5 @@ const followersArray = [];
     luishrd
     bigknell
 */
+
+
