@@ -37,7 +37,7 @@ axios.get('https://api.github.com/users/halliwell2046')
     user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = ['halliwell2046','tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell'];
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
@@ -97,6 +97,24 @@ function githubCard(object) {
   bio.textContent = object.bio
 
   return card;
+}
+
+const cardTest = document.querySelector('.cards')
+
+for (let i = 0; i < followersArray.length; i++){
+  axios.get('https://api.github.com/users/' + followersArray[i])
+  .then(function (response) {
+    console.log(response.data)
+    cardTest.appendChild(githubCard(response.data))
+
+
+  })
+  .catch(function (error) {
+    console.log(error)
+  })
+  .finally(function () {
+    
+  })
 }
 
 /*
